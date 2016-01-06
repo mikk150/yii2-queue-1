@@ -2,8 +2,10 @@
 
 namespace yii\queue;
 
+use Thread;
+
 /**
- *
+ * This is container for Threaded worker, it will run jobs in parallel if running in real pthreads not polyfill one.
  */
 class WorkerThread extends Thread
 {
@@ -16,6 +18,8 @@ class WorkerThread extends Thread
 
     public function run()
     {
-        $job->run();
+        echo 'Running job'.PHP_EOL;
+        var_dump($this->_job);
+        $this->_job->run();
     }
 }
