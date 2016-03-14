@@ -42,10 +42,8 @@ class ThreadedController extends QueueController
 
                 return true;
             } catch (\Exception $e) {
-                Yii::error($e->getMessage(), __METHOD__);
-
-                var_dump($e);
-
+                Yii::$app->getErrorHandler()->logException($e);
+                
                 return true;
             }
         }

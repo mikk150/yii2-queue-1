@@ -73,7 +73,7 @@ class QueueController extends Controller
 
                 return true;
             } catch (\Exception $e) {
-                Yii::error($e->getMessage(), __METHOD__);
+                Yii::$app->getErrorHandler()->logException($e);
             }
         }
 
