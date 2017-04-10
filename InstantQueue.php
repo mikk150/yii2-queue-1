@@ -29,6 +29,7 @@ class InstantQueue extends Component implements QueueInterface
     public function push($payload, $queue, $delay = 0) {
         $jobObject = call_user_func($payload['serializer'][1], $payload['object']);
         $jobObject->run();
+        return 'yes';
     }
 
     /**
